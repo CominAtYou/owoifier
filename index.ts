@@ -11,7 +11,7 @@ function createWindow() {
     });
     win.loadFile('index.html');
     win.removeMenu();
-    win.webContents.on('new-window', function(e, url) {
+    win.webContents.on('new-window', (e, url) => {
         e.preventDefault();
         require('electron').shell.openExternal(url);
       });
