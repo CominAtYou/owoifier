@@ -2,13 +2,19 @@ import {app, BrowserWindow} from 'electron';
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 400,
-        height: 200,
+        width: 450,
+        height: 250,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            devTools: false
         }
     });
     win.loadFile('index.html');
+    win.removeMenu();
+    win.webContents.on('new-window', function(e, url) {
+        e.preventDefault();
+        require('electron').shell.openExternal(url);
+      });
 }
 
 app.whenReady().then(createWindow);
