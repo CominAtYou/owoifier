@@ -15,16 +15,30 @@
             input, button, textarea, :focus {
                 outline: none;
             }
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: rgb(37, 37, 38);
+                    color: rgb(227, 227, 227);
+                }
+                input[type="text"], textarea {
+                    background-color : #252527;
+                    color: rgb(227, 227, 227);
+                }
+                input[type=text] {
+                    border-color: rgb(227, 227, 227);
+                }
+            }
         </style>
     </head>
     <body>
-        <h1 id="title" style="margin-top: 12px; margin-bottom: 24px;" onselectstart="return false;" unselectable="on">owoifier</h1>
+        <h1 id="title" style="margin-top: 12px; margin-bottom: 24px;" onselectstart="() => undefined;" unselectable="on">owoifier</h1>
         <input type="text" id="textEntry" style="border-radius: 10px; width: 150px; margin-bottom: 24px;">
-        <span class="submitButton"><input type="button" value="Swubmit" onclick="start()"></span>
+        <span id="submitButton"><input type="button" value="Swubmit" onclick="start()"></span>
         <div id="output" style="margin-top: 12x;">&nbsp;</div>
-        <p id="footer">v1.0.0 - Made by <a href="https://github.com/CominAtYou" target="_blank">CominAtYou</a> with <a href="https://www.npmjs.com/package/owoifyx" target="_blank">owoifyx</a></p>
+        <p id="footer">v1.1 - Made by <a href="https://github.com/CominAtYou" target="_blank">CominAtYou</a> with <a href="https://www.npmjs.com/package/owoifyx" target="_blank">owoifyx</a></p>
         <script>
             function start() {
+                if (textBox.value === "") return;
                 document.getElementById('output').innerHTML = owoify(textBox.value);
             }
             const textBox = document.getElementById("textEntry");
