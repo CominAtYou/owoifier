@@ -1,7 +1,7 @@
 # owoifier
 A UI app that converts text into OwO, made with Electron.
 
-## Features:
+## Features
 - A GUI
 - Text to OwO conversion
 - Much fear, on my end
@@ -18,6 +18,9 @@ $ npm i electron-packager -g
 ```
 $ electron-packager ./owoifier --platform=your_desired_platform --arch=your_desired_architecture
 ```
+
+  Note: Building on Windows targeting Macs will require you to be running in an elevated shell, since it requires symlinking.
+
 5. ???
 6. Profit
 ## FAQ
